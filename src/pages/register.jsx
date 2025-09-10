@@ -8,5 +8,4 @@ const RegisterPage = () => {
     </AuthLayout>
   );
 };
-
 export default RegisterPage;

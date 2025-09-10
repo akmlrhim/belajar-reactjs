@@ -1,38 +1,68 @@
+import { Fragment } from 'react';
+import CardProduct from '../components/Fragments/CardProduct';
 import Button from '../components/Elements/Button';
 
+const products = [
+  {
+    id: 1,
+    name: 'Sepatu Baru',
+    image: '/images/shoes-1.webp',
+    price: 'Rp. 1.000.000',
+    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam
+          quidem fugiat minus inventore quisquam et repudiandae sequi vitae ex
+          facere eveniet ipsam, ipsum quod esse aspernatur quaerat.
+          Exercitationem, iure sint quaerat doloremque voluptatem ea. Ullam quos
+          cum officia est consequuntur!`,
+  },
+  {
+    id: 2,
+    name: 'Sepatu Lama',
+    image: '/images/shoes-1.webp',
+    price: 'Rp. 132.000',
+    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit.`,
+  },
+  {
+    id: 3,
+    name: 'Sepatu Pudidi',
+    image: '/images/shoes-1.webp',
+    price: 'Rp. 970.000',
+    description: `Quibusdam
+          quidem fugiat minus inventore quisquam et repudiandae sequi vitae ex
+          facere eveniet ipsam, ipsum quod esse aspernatur quaerat.
+          Exercitationem, iure sint quaerat doloremque voluptatem ea. Ullam quos
+          cum officia est consequuntur!`,
+  },
+];
+
+const email = localStorage.getItem('email');
+
 const ProductsPage = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    window.location.href = '/login';
+  };
+
   return (
-    <div className="flex justify-center py-5">
-      <div className="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow">
-        <a href="">
-          <img
-            src="/images/shoes-1.webp"
-            loading="lazy"
-            alt="products"
-            className="p-8 rounded-t-lg"
-          />
-        </a>
-        <div className="px-5 pb-5">
-          <a href="">
-            <h5 className="text-xl font-semibold tracking-tight text-white">
-              Sepatu Baru
-            </h5>
-            <p className="text-md text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-              cupiditate dolore ratione fugit, sequi quas consequuntur labore
-              saepe voluptatum! Suscipit mollitia, blanditiis ipsa
-              reprehenderit, quo similique omnis illo hic voluptate temporibus
-              sapiente obcaecati quis veritatis, vero deserunt repellendus!
-              Modi, laborum.
-            </p>
-          </a>
-        </div>
-        <div className="flex items-center justify-between px-5 pb-5">
-          <span className="text-xl font-bold text-white">Rp. 1.000.000,-</span>
-          <Button classname="bg-blue-600">Add to Cart</Button>
-        </div>
+    <Fragment>
+      <div className="flex justify-end bg-blue-800 text-white h-20 items-center px-10 font-medium">
+        {email}
+        <Button classname="bg-red-800 ml-5" onClick={handleLogout}>
+          Logout
+        </Button>
       </div>
-    </div>
+      <div className="flex justify-center py-5">
+        {products.map((product) => (
+          <CardProduct key={product.id}>
+            <CardProduct.Header image={product.image} />
+            <CardProduct.Body name={product.name}>
+              {product.description}
+            </CardProduct.Body>
+            <CardProduct.Footer price={product.price} />
+          </CardProduct>
+        ))}
+      </div>
+    </Fragment>
   );
 };
 
