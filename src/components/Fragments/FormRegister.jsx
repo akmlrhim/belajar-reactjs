@@ -1,5 +1,6 @@
-import Button from "../Elements/Button";
-import InputForm from "../Elements/Input";
+import { Link } from 'react-router-dom';
+import Button from '../Elements/Button';
+import InputForm from '../Elements/Input';
 
 const FormRegister = () => {
   return (
@@ -32,7 +33,7 @@ const FormRegister = () => {
         placeholder="********"
       />
 
-      <Button classname="bg-blue-800 w-full">Register</Button>
+      <Button classname="bg-blue-800 w-full mb-2">Register</Button>
     </form>
   );
 };

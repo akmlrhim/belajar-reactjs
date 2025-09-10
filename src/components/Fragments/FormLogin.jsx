@@ -1,5 +1,5 @@
-import Button from "../Elements/Button";
-import InputForm from "../Elements/Input";
+import Button from '../Elements/Button';
+import InputForm from '../Elements/Input';
 
 const FormLogin = () => {
   return (
@@ -13,12 +13,12 @@ const FormLogin = () => {
 
       <InputForm
         label="Password"
-        name="password"
         type="password"
         placeholder="********"
+        name="password"
       />
 
-      <Button classname="bg-blue-800 w-full">Login</Button>
+      <Button classname="bg-blue-800 w-full mb-2">Login</Button>
     </form>
   );
 };

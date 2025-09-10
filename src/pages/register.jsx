@@ -1,9 +1,9 @@
-import FormRegister from "../components/Fragments/FormRegister";
-import AuthLayout from "../components/Layouts/AuthLayout";
+import FormRegister from '../components/Fragments/FormRegister';
+import AuthLayout from '../components/Layouts/AuthLayout';
 
 const RegisterPage = () => {
   return (
-    <AuthLayout title="Register">
+    <AuthLayout title="Register" type="register">
       <FormRegister />
     </AuthLayout>
   );
