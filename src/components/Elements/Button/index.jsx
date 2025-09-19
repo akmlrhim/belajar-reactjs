@@ -8,9 +8,9 @@ const Button = (props) => {
 
   return (
     <button
-      className={`h-10 px-6 font-semibold rounded-md ${classname} text-white`}
+      className={`h-10 px-6 font-semibold rounded-md ${classname} text-white cursor-pointer`}
       type={type}
-      onClick={() => onClick()}>
+      onClick={onClick}>
       {children}
     </button>
   );
